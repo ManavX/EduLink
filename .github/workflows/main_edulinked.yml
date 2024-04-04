@@ -24,14 +24,14 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
+          npm ci
           npm run start
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: node-app.zip
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,9 +47,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+          path: node-app
       - run: |
-          unzip node-app.zip
+          zip -r node-app.zip node-app/
           rm node-app.zip
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "node-app.zip"
       
       - name: Login to Azure
         uses: azure/login@v1
