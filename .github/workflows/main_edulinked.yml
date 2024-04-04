@@ -24,6 +24,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          npm install @craco/craco --save --legacy-peer-deps
           npm ci
           npm run start
       
