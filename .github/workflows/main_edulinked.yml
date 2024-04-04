@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: node-app.zip
+          path: public.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,9 +47,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+          path: .
       - run: |
-          unzip node-app.zip
-          rm node-app.zip
+          unzip public.zip -d public
+          rm public.zip
       
       - name: Login to Azure
         uses: azure/login@v1
