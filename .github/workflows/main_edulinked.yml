@@ -49,8 +49,8 @@ jobs:
           name: node-app
           path: .
       - run: |
-          unzip public.zip -d public
-          rm public.zip
+          unzip node-app.zip -d node-app
+          rm node-app.zip
       
       - name: Login to Azure
         uses: azure/login@v1
