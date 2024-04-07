@@ -66,5 +66,5 @@ jobs:
         with:
           app-name: 'EduLinked'
           slot-name: 'Production'
-          package: node-app/public
+          package: node-app/src
           
