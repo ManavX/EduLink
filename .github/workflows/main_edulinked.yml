@@ -55,6 +55,7 @@ jobs:
 
       - name: Building
         run: |
+          npm init
           npm run build
       
       - name: Login to Azure
