@@ -25,7 +25,6 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build
           zip -r node-app.zip .
       
       - name: Upload artifact for deployment job
