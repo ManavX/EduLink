@@ -25,7 +25,10 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          zip -r node-app.zip .
+          npm run build
+
+      - name: zip it up
+          zip -r node-app.zip ./
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -52,11 +55,6 @@ jobs:
           unzip node-app.zip -d node-app
           ls -l node-app
           rm node-app.zip
-
-      - name: Building
-        run: |
-          npm init
-          npm run build
       
       - name: Login to Azure
         uses: azure/login@v1
