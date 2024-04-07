@@ -52,6 +52,7 @@ jobs:
           unzip node-app.zip -d node-app
           ls -l node-app
           rm node-app.zip
+          npm run build
       
       - name: Login to Azure
         uses: azure/login@v1
