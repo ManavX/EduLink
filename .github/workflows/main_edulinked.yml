@@ -50,6 +50,7 @@ jobs:
           path: .
       - run: |
           unzip node-app.zip -d node-app
+          ls -l node-app
           rm node-app.zip
       
       - name: Login to Azure
