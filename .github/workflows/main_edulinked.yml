@@ -28,6 +28,7 @@ jobs:
           npm run build
 
       - name: zip it up
+        run: |
           zip -r node-app.zip ./
       
       - name: Upload artifact for deployment job
